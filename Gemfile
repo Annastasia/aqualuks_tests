@@ -5,4 +5,5 @@ gem 'cucumber'
 gem 'capybara'
 gem 'pry'
 gem 'selenium-webdriver'
+gem 'rspec'
 # gem "rails"

@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require "selenium-webdriver"
 require 'pry'
+require 'capybara/rspec'
 
 Capybara.configure do |config|
   config.run_server = false
