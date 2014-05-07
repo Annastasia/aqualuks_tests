@@ -1,6 +1,6 @@
-When(/^I add several products to cart$/) do
+When(/^I add (\d) products to cart$/) do |n|
   products = all('.product .btn')
-  products.first(3).each do |p|
+  products.first(n.to_i).each do |p|
     p.click
     sleep 1
   end
@@ -10,15 +10,13 @@ When(/^I open the cart$/) do
   find('.cart-link a').click
  end
 
-Then(/^I should see the added products$/) do
-  binding.pry
-  expect(page.all('#Modal tbody tr').length).to eql(3)
+Then(/^I should see (\d) products$/) do |n|
+  find("#Modal").should be_visible
+  expect(page.all('#Modal tbody tr').length).to eql(n.to_i)
 end
 
 When(/^I remove a product from cart$/) do
+  find("#Modal").should be_visible
+  all('#Modal tbody td a')[1].click
+  find('.modal_header button').click
 end
-
-Then(/^I should see product has been removed$/) do
-  pending # express the regexp above with the code you wish you had
-end
-

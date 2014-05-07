@@ -1,11 +1,15 @@
 Feature: Cart
 
-  Scenario: Adding products to the cart
+  Background:
     Given I am on the Home page
-    When I add several products to cart
+    When I add 3 products to cart
     And I open the cart
-    Then I should see the added products
+
+
+  Scenario: Adding products to the cart
+    Then I should see 3 products
 
   Scenario: Removing product from the cart
     When I remove a product from cart
-    Then I should see product has been removed
+    And I open the cart
+    Then I should see 2 products
