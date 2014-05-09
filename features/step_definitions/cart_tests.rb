@@ -20,3 +20,12 @@ When(/^I remove a product from cart$/) do
   all('#Modal tbody td a')[1].click
   find('.modal_header button').click
 end
+
+When(/^I empty the cart$/) do
+  find('.pull-left a').click
+end
+
+Then(/^Cart should be empty$/) do
+  page.should have_css('#full_cart .items li:nth-child(3)', visible: false, text: "0")
+end
+

@@ -13,3 +13,7 @@ Feature: Cart
     When I remove a product from cart
     And I open the cart
     Then I should see 2 products
+
+  Scenario: Empty the cart
+    When I empty the cart
+    Then Cart should be empty
